@@ -2,10 +2,9 @@ import React from 'react';
 import { Card, CardImg, CardImgOverlay,
     CardTitle } from 'reactstrap';
 
-function RenderMenuItem ({category, onClick}) {
+function RenderMenuItem ({category}) {
     return (
-        <Card
-            onClick={() => onClick(category.id)}>
+        <Card>
             <CardImg width="100%" className="homePageImg" src={category.image} alt={category.name} />
             <CardImgOverlay>
                 <CardTitle id="white">{category.name}</CardTitle>
@@ -18,8 +17,8 @@ const Menu = (props) => {
 
     const menu = props.categories.map((category) => {
         return (
-            <div className="col-12 col-md-5 m-1"  key={category.id}>
-                <RenderMenuItem category={category} onClick={props.onClick} />
+            <div key={category.id} className="col-12 col-md-5 m-1">
+                <RenderMenuItem category={category} />
             </div>
         );
     });
@@ -32,5 +31,6 @@ const Menu = (props) => {
         </div>
     );
 }
+
 
 export default Menu;

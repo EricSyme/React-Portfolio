@@ -1,7 +1,11 @@
 import React, { Component } from 'react';
 import { Navbar, NavbarBrand } from 'reactstrap';
-import Menu from './homeCardComponent';
+import Home from './HomeComponent';
+import Menu from './MenuComponent'; 
+import Footer from './FooterComponent';
+import Header from './HeaderComponent';
 import CategoryDetail from './CategorydatailComponent';
+import { Switch, Route, Redirect } from 'react-router-dom';
 import { CATEGORIES } from '../shared/categories';
 
 class Main extends Component {
@@ -19,15 +23,23 @@ class Main extends Component {
   }
 
   render() {
+
+    const HomePage = () => {
+      return(
+          <Home 
+          />
+      );
+    }
+
     return (
       <div>
-        <Navbar dark color="primary">
-          <div className="container">
-            <NavbarBrand href="/">Eric Syme -- Portfolio</NavbarBrand>
-          </div>
-        </Navbar>
-        <Menu categories={this.state.categories} onClick={(categoryId) => this.onCategorySelect(categoryId)} />
-        <CategoryDetail category={this.state.categories.filter((category) => category.id === this.state.selectedCategory)[0]} />
+        <Header />
+        <Switch>
+              <Route path='/home' render={HomePage} />
+              <Route exact path='/projects' render={() => <Menu categories={this.state.categories} />} />
+              <Redirect to="/home" />
+          </Switch>
+        <Footer />
       </div>
     );
   }
