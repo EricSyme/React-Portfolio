@@ -19,6 +19,6 @@ export const CATEGORIES =
         id: 3,
         name:'Cool Tech Stuff',
         image: 'assets/images/tech.jpg',
-        category: 'dessert',
+        featured: true,
         description:'Here you can find examples of technologies that I use in my code.  See what exactly a "regular expression" is!'                        }
     ];
