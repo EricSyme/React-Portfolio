@@ -7,10 +7,11 @@ import { Control, LocalForm, Errors } from 'react-redux-form';
 
 
 function RenderProject({project}){
+    console.log("project image", project.image)
     return(
         <div className="col-12 col-md-5 m-1">
             <Card>
-                <CardImg width="100%" src={project.image} alt={project.name}></CardImg>
+                <CardImg width="100%" src={(project.image)} alt={project.name}></CardImg>
                 <CardBody>
                     <CardTitle>{project.name}</CardTitle>
                     <CardText>{project.description}</CardText>
@@ -21,7 +22,7 @@ function RenderProject({project}){
 }
 
 function RenderComments({comments}) {
-    var comments = comments.map ((comments) => {
+    var comms = comments.map ((comments) => {
         return (
             <li style={{ listStyleType: "none"}} key={comments.id}>
             {comments.comment}<br/><br/>--{comments.author} {new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'short', day: '2-digit'}).format(new Date(Date.parse(comments.date)))}<br/><br/>
@@ -33,7 +34,7 @@ function RenderComments({comments}) {
         return(
             <div className = "col-12 col-md-5 m-1">
                 <h4>Comments</h4>
-                {comments}
+                {comms}
             </div>
         );
     }
@@ -66,7 +67,7 @@ const ProjectDetail = (props) => {
                 </div>
                 <div className="row">
                     <RenderProject project={props.project} />
-                    <RenderComments comments={props.comments} />
+                    <RenderComments comments={props.comments} /> 
                 </div>
             </div>
         );

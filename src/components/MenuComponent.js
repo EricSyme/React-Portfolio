@@ -4,6 +4,7 @@ import { Card, CardImg, CardImgOverlay,
 import { Link } from 'react-router-dom';
 
 function RenderMenuItem ({project, onClick}) {
+    console.log("menu component", project.image)
     return (
         <Card>
             <Link to={`/projects/${project.id}`} >

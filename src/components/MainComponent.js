@@ -53,7 +53,7 @@ class Main extends Component {
           <Switch>
             <Route path='/home' render={HomePage} />
             <Route exact path='/projects' render={() => <Menu projects={this.state.projects} />} />
-            <Route path ='/projects/:projectId' component={ProjectWithId} />
+            <Route path ='/projects/:projectId' render={ProjectWithId} />
             <Redirect to="/home" />
           </Switch>
         <Footer />
