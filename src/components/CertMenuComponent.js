@@ -3,26 +3,25 @@ import { Card, CardImg, CardImgOverlay,
     CardTitle, Breadcrumb, BreadcrumbItem } from 'reactstrap';
 import { Link } from 'react-router-dom';
 
-function RenderMenuItem ({project}) {
-    console.log("menu component", project.image)
+function RenderCertMenuItem ({certificate}) {
     return (
         <Card>
-            <Link to={`/projects/${project.id}`} >
-                <CardImg width="100%" src={project.image} alt={project.name} />
+            <Link to={`/certificates/${certificate.id}`} >
+                <CardImg width="100%" src={certificate.image} alt={certificate.name} />
                 <CardImgOverlay>
-                    <CardTitle id="white">{project.name}</CardTitle>
+                    <CardTitle id="white">{certificate.name}</CardTitle>
                 </CardImgOverlay>
             </Link>
         </Card>
     );
 }
 
-const Menu = (props) => {
+const CertMenu = (props) => {
 
-    const menu = props.projects.map((project) => {
+    const certMenu = props.certificates.map((certificate) => {
         return (
-            <div key={project.id} className="col-12 col-md-5 m-1">
-                <RenderMenuItem project={project} />
+            <div key={certificate.id} className="col-12 col-md-5 m-1">
+                <RenderCertMenuItem certificate={certificate} />
             </div>
         );
     });
@@ -32,19 +31,19 @@ const Menu = (props) => {
             <div className="row">
                     <Breadcrumb>
                         <BreadcrumbItem><Link to="/home">Home</Link></BreadcrumbItem>
-                        <BreadcrumbItem active>Projects</BreadcrumbItem>
+                        <BreadcrumbItem active>Certificates</BreadcrumbItem>
                     </Breadcrumb>
                     <div className="col-12">
-                        <h3>Projects</h3>
+                        <h3>Certificates</h3>
                         <hr />
                     </div>                
                 </div>
             <div className="row">
-                {menu}
+                {certMenu}
             </div>
         </div>
     );
 }
 
 
-export default Menu;
+export default CertMenu;

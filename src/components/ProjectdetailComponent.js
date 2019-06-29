@@ -7,7 +7,6 @@ import { Control, LocalForm, Errors } from 'react-redux-form';
 
 
 function RenderProject({project}){
-    console.log("project image", project.image)
     return(
         <div className="col-12 col-md-5 m-1">
             <Card>
