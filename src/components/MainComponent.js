@@ -6,13 +6,28 @@ import Footer from './FooterComponent';
 import Header from './HeaderComponent';
 import CertificateDetail from './CertdetailComponent';
 import ProjectDetail from './ProjectdetailComponent';
-import { Switch, Route, Redirect } from 'react-router-dom';
+import Contact from './ContactComponent';
 import { CATEGORIES } from '../shared/categories';
 import { PROJECTS } from '../shared/projects';
 import { BIOGRAPHY } from '../shared/biography';
 import { CERTIFICATES } from '../shared/certificates';
 import { COMMENTS } from '../shared/comments';
 import BioHome from './BioComponent';
+import { Switch, Route, Redirect, withRouter } from 'react-router-dom'
+import { connect } from 'react-redux';
+
+
+
+
+const mapStateToProps = state => {
+  return {
+    dishes: state.dishes,
+    comments: state.comments,
+    promotions: state.promotions,
+    leaders: state.leaders
+  }
+}
+
 
 class Main extends Component {
 
@@ -74,6 +89,7 @@ class Main extends Component {
             <Route path='/biography' render={BioHomePage} />
             <Route exact path='/certificates' render={() => <CertMenu certificates={this.state.certificates} />} />
             <Route path ='/certificates/:certificateId' render={CertificateWithId} />
+            <Route exact path='/contactus' component={Contact} />
             <Redirect to="/home" />
           </Switch>
         <Footer />
@@ -82,4 +98,4 @@ class Main extends Component {
   }
 }
 
-export default Main;
+export default withRouter(connect(mapStateToProps)(Main));

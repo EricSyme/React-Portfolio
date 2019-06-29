@@ -8,7 +8,7 @@ import { Control, LocalForm, Errors } from 'react-redux-form';
 
 function RenderCertificate({certificate}){
     return(
-        <div className="col-12 col-md-5 m-1">
+        <div className="col-12 m-1">
             <Card>
                 <CardImg width="100%" src={(certificate.image)} alt={certificate.name}></CardImg>
                 <CardBody>
