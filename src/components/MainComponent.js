@@ -4,45 +4,33 @@ import Menu from './MenuComponent';
 import CertMenu from './CertMenuComponent';
 import Footer from './FooterComponent';
 import Header from './HeaderComponent';
+import Contact from './ContactComponent';
 import CertificateDetail from './CertdetailComponent';
 import ProjectDetail from './ProjectdetailComponent';
-import Contact from './ContactComponent';
-import { CATEGORIES } from '../shared/categories';
-import { PROJECTS } from '../shared/projects';
-import { BIOGRAPHY } from '../shared/biography';
-import { CERTIFICATES } from '../shared/certificates';
-import { COMMENTS } from '../shared/comments';
+import { Switch, Route, Redirect, withRouter} from 'react-router-dom';
 import BioHome from './BioComponent';
-import { Switch, Route, Redirect, withRouter } from 'react-router-dom'
+import { addComment } from '../redux/ActionCreators';
 import { connect } from 'react-redux';
-
-
-
 
 const mapStateToProps = state => {
   return {
-    dishes: state.dishes,
+    projects: state.projects,
     comments: state.comments,
-    promotions: state.promotions,
-    leaders: state.leaders
-  }
+    certificates: state.certificates,
+    biographies: state.biography,
+    categories: state.categories
+  }   
 }
 
 
+const mapDispatchToProps = dispatch => ({
+  
+  addComment: (projectId, rating, author, comment) => dispatch(addComment(projectId, rating, author, comment))
+
+});
+
+
 class Main extends Component {
-
-  constructor(props) {
-    super(props);
-    this.state = {
-        categories: CATEGORIES,
-        projects: PROJECTS,
-        biographies: BIOGRAPHY,
-        certificates: CERTIFICATES,
-        comments: COMMENTS,
-        selectedCategory: null
-    };
-  }
-
 
   render() {
  
@@ -50,10 +38,10 @@ class Main extends Component {
     const HomePage = () => {
       return(
           <Home 
-            project={this.state.projects.filter((project) => project.featured)[0]}
-            biography={this.state.biographies.filter((biography) => biography.featured)[0]}
-            certificate={this.state.certificates.filter((certificate) => certificate.featured)[0]}
-            category={this.state.categories.filter((category) => category.featured)[0]}
+            project={this.props.projects.filter((project) => project.featured)[0]}
+            biography={this.props.biographies.filter((biography) => biography.featured)[0]}
+            certificate={this.props.certificates.filter((certificate) => certificate.featured)[0]}
+            category={this.props.categories.filter((category) => category.featured)[0]}
           />
       );
     }
@@ -61,21 +49,23 @@ class Main extends Component {
     const BioHomePage = () => {
       return(
           <BioHome 
-            biography={this.state.biographies.filter((biography) => biography.featured)[0]}
+            biography={this.props.biographies.filter((biography) => biography.featured)[0]}
           />
       );
     }
 
     const ProjectWithId = ({match}) => {
       return(
-          <ProjectDetail project={this.state.projects.filter((project) => project.id === parseInt(match.params.projectId,10))[0]} 
-            comments={this.state.comments.filter((comment) => comment.projectId === parseInt(match.params.projectId,10))} />
+        <ProjectDetail project={this.props.projects.filter((project) => project.id === parseInt(match.params.projectId,10))[0]}
+        comments={this.props.comments.filter((comment) => comment.projectId === parseInt(match.params.projectId,10))}
+        addComment={this.props.addComment}
+      />
       );
     };
 
     const CertificateWithId = ({match}) => {
       return(
-          <CertificateDetail certificate={this.state.certificates.filter((certificate) => certificate.id === parseInt(match.params.certificateId,10))[0]} />
+          <CertificateDetail certificate={this.props.certificates.filter((certificate) => certificate.id === parseInt(match.params.certificateId,10))[0]} />
       );
     };
 
@@ -84,12 +74,12 @@ class Main extends Component {
         <Header />
           <Switch>
             <Route path='/home' render={HomePage} />
-            <Route exact path='/projects' render={() => <Menu projects={this.state.projects} />} />
+            <Route exact path='/projects' render={() => <Menu projects={this.props.projects} />} />
             <Route path ='/projects/:projectId' render={ProjectWithId} />
             <Route path='/biography' render={BioHomePage} />
-            <Route exact path='/certificates' render={() => <CertMenu certificates={this.state.certificates} />} />
+            <Route exact path='/certificates' render={() => <CertMenu certificates={this.props.certificates} />} />
             <Route path ='/certificates/:certificateId' render={CertificateWithId} />
-            <Route exact path='/contactus' component={Contact} />
+            <Route exact path='/contactus'  component={() => <Contact postFeedback={this.props.postFeedback}                resetFeedbackForm={this.props.resetFeedbackForm} /> } />
             <Redirect to="/home" />
           </Switch>
         <Footer />
