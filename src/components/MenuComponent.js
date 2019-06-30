@@ -2,6 +2,10 @@ import React from 'react';
 import { Card, CardImg, CardImgOverlay,
     CardTitle, Breadcrumb, BreadcrumbItem } from 'reactstrap';
 import { Link } from 'react-router-dom';
+import { Loading } from './LoadingComponent';
+
+
+
 
 function RenderMenuItem ({project}) {
     console.log("menu component", project.image)
@@ -19,13 +23,33 @@ function RenderMenuItem ({project}) {
 
 const Menu = (props) => {
 
-    const menu = props.projects.map((project) => {
+    const menu = props.projects.projects.map((project) => {
         return (
             <div key={project.id} className="col-12 col-md-5 m-1">
                 <RenderMenuItem project={project} />
             </div>
         );
     });
+
+    if (props.projects.isLoading) {
+        return(
+            <div className="container">
+                <div className="row">
+                    <Loading />
+                </div>
+            </div>
+        );
+    }
+    else if (props.projects.errMess) {
+        return(
+            <div className="container">
+                <div className="row">
+                    <h4>{props.projects.errMess}</h4>
+                </div>
+            </div>
+        );
+    }
+    else
 
     return (
         <div className="container">

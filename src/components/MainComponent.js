@@ -9,7 +9,7 @@ import CertificateDetail from './CertdetailComponent';
 import ProjectDetail from './ProjectdetailComponent';
 import { Switch, Route, Redirect, withRouter} from 'react-router-dom';
 import BioHome from './BioComponent';
-import { addComment } from '../redux/ActionCreators';
+import { addComment, fetchProjects } from '../redux/ActionCreators';
 import { connect } from 'react-redux';
 
 const mapStateToProps = state => {
@@ -25,12 +25,18 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => ({
   
-  addComment: (projectId, rating, author, comment) => dispatch(addComment(projectId, rating, author, comment))
+  addComment: (projectId, rating, author, comment) => dispatch(addComment(projectId, rating, author, comment)),
+  fetchProjects: () => { dispatch(fetchProjects())}
+
 
 });
 
 
 class Main extends Component {
+
+  componentDidMount() {
+    this.props.fetchProjects();
+  }
 
   render() {
  
@@ -38,7 +44,9 @@ class Main extends Component {
     const HomePage = () => {
       return(
           <Home 
-            project={this.props.projects.filter((project) => project.featured)[0]}
+            project={this.props.projects.projects.filter((project) => project.featured)[0]}
+            projectsLoading={this.props.projects.isLoading}
+            projectsErrMess={this.props.projects.errMess}
             biography={this.props.biographies.filter((biography) => biography.featured)[0]}
             certificate={this.props.certificates.filter((certificate) => certificate.featured)[0]}
             category={this.props.categories.filter((category) => category.featured)[0]}
@@ -56,7 +64,9 @@ class Main extends Component {
 
     const ProjectWithId = ({match}) => {
       return(
-        <ProjectDetail project={this.props.projects.filter((project) => project.id === parseInt(match.params.projectId,10))[0]}
+        <ProjectDetail project={this.props.projects.projects.filter((project) => project.id === parseInt(match.params.projectId,10))[0]}
+        isLoading={this.props.projects.isLoading}
+        errMess={this.props.projects.errMess}
         comments={this.props.comments.filter((comment) => comment.projectId === parseInt(match.params.projectId,10))}
         addComment={this.props.addComment}
       />
@@ -88,4 +98,4 @@ class Main extends Component {
   }
 }
 
-export default withRouter(connect(mapStateToProps)(Main));
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Main));

@@ -1,9 +1,11 @@
-import { createStore, combineReducers } from 'redux';
+import { createStore, combineReducers, applyMiddleware } from 'redux';
 import { Projects } from './projects';
 import { Comments } from './comments';
 import { Categories } from './categories';
 import { Certificates } from './certificates';
 import { Biography } from './biography';
+import thunk from 'redux-thunk';
+import logger from 'redux-logger';
 
 
 export const ConfigureStore = () => {
@@ -14,7 +16,8 @@ export const ConfigureStore = () => {
             certificates: Certificates,
             categories: Categories,
             biography: Biography
-        })
+        }),
+        applyMiddleware(thunk, logger)
     );
 
     return store;
