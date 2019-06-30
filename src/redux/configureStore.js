@@ -6,6 +6,10 @@ import { Certificates } from './certificates';
 import { Biography } from './biography';
 import thunk from 'redux-thunk';
 import logger from 'redux-logger';
+import { createForms } from 'react-redux-form';
+import { InitialFeedback } from './forms';
+
+
 
 
 export const ConfigureStore = () => {
@@ -15,7 +19,10 @@ export const ConfigureStore = () => {
             comments: Comments,
             certificates: Certificates,
             categories: Categories,
-            biography: Biography
+            biography: Biography,
+            ...createForms({
+                feedback: InitialFeedback
+            })
         }),
         applyMiddleware(thunk, logger)
     );

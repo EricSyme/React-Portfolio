@@ -11,6 +11,10 @@ import { Switch, Route, Redirect, withRouter} from 'react-router-dom';
 import BioHome from './BioComponent';
 import { addComment, fetchProjects } from '../redux/ActionCreators';
 import { connect } from 'react-redux';
+import { actions } from 'react-redux-form';
+
+
+
 
 const mapStateToProps = state => {
   return {
@@ -26,7 +30,9 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => ({
   
   addComment: (projectId, rating, author, comment) => dispatch(addComment(projectId, rating, author, comment)),
-  fetchProjects: () => { dispatch(fetchProjects())}
+  fetchProjects: () => { dispatch(fetchProjects())},
+  resetFeedbackForm: () => { dispatch(actions.reset('feedback'))}
+
 
 
 });
@@ -89,7 +95,7 @@ class Main extends Component {
             <Route path='/biography' render={BioHomePage} />
             <Route exact path='/certificates' render={() => <CertMenu certificates={this.props.certificates} />} />
             <Route path ='/certificates/:certificateId' render={CertificateWithId} />
-            <Route exact path='/contactus'  component={() => <Contact postFeedback={this.props.postFeedback}                resetFeedbackForm={this.props.resetFeedbackForm} /> } />
+            <Route exact path='/contactus' render={() => <Contact resetFeedbackForm={this.props.resetFeedbackForm} />} />
             <Redirect to="/home" />
           </Switch>
         <Footer />
