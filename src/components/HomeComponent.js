@@ -2,6 +2,7 @@ import React from 'react';
 import { Card, CardImg, CardText, CardBody,
     CardTitle, CardSubtitle} from 'reactstrap';
 import { FadeTransform } from 'react-animation-components';
+import { Link } from 'react-router-dom';
 
 
 
@@ -26,16 +27,22 @@ function RenderCard({item}) {
 
 function Home(props) {
     return(
-      <div className="container div">
+      <div className="container">
         <div className="row align-items-start">
             <div className="col-12 col-md m-1">
+                <Link to="/projects">
                 <RenderCard item={props.project}/>
+                </Link>
             </div>
             <div className="col-12 col-md m-1">
+                <Link to="/biography">
                 <RenderCard item={props.biography} />
+                </Link>
             </div>
             <div className="col-12 col-md m-1">
+                <Link to="/certificates">
                 <RenderCard item={props.certificate} />
+                </Link>
             </div>
             <div className="col-12 col-md m-1">
                 <RenderCard item={props.category} />
