@@ -34,3 +34,40 @@ address{
 .navbar-dark {
     background-color: #512DA8;
 }
+.page-enter {
+    opacity: 0.01;
+    transform: translateX(-100%);
+}
+
+.page-enter-active {
+    opacity: 1;
+    transform: translateX(0%);
+    transition: all 300ms ease-in;
+}
+
+.page-exit {
+    opacity: 1;
+    transform: translateX(0%);
+}
+
+.page-exit-active {
+    opacity: 0.01;
+    transform: translateX(100%); 
+    transition: all 300ms ease-out;
+}
+
+.background {
+    background-image: url("/assets/images/gradient2.jpg");
+    background-repeat: no-repeat;
+	height:100%;
+	background-position: center;
+	background-size: cover;
+		/* Create the parallax scrolling effect */
+	background-attachment: fixed;
+	max-width: 100%;
+    overflow-x: hidden;
+}
+
+.full {
+    margin-bottom: 100%;
+}

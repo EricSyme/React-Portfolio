@@ -9,9 +9,11 @@ import CertificateDetail from './CertdetailComponent';
 import ProjectDetail from './ProjectdetailComponent';
 import { Switch, Route, Redirect, withRouter} from 'react-router-dom';
 import BioHome from './BioComponent';
-import { addComment, fetchProjects } from '../redux/ActionCreators';
+import { addComment } from '../redux/ActionCreators';
 import { connect } from 'react-redux';
 import { actions } from 'react-redux-form';
+import { TransitionGroup, CSSTransition } from 'react-transition-group';
+
 
 
 
@@ -30,7 +32,6 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => ({
   
   addComment: (projectId, rating, author, comment) => dispatch(addComment(projectId, rating, author, comment)),
-  fetchProjects: () => { dispatch(fetchProjects())},
   resetFeedbackForm: () => { dispatch(actions.reset('feedback'))}
 
 
@@ -40,19 +41,13 @@ const mapDispatchToProps = dispatch => ({
 
 class Main extends Component {
 
-  componentDidMount() {
-    this.props.fetchProjects();
-  }
-
   render() {
  
 
     const HomePage = () => {
       return(
           <Home 
-            project={this.props.projects.projects.filter((project) => project.featured)[0]}
-            projectsLoading={this.props.projects.isLoading}
-            projectsErrMess={this.props.projects.errMess}
+            project={this.props.projects.filter((project) => project.featured)[0]}
             biography={this.props.biographies.filter((biography) => biography.featured)[0]}
             certificate={this.props.certificates.filter((certificate) => certificate.featured)[0]}
             category={this.props.categories.filter((category) => category.featured)[0]}
@@ -70,9 +65,7 @@ class Main extends Component {
 
     const ProjectWithId = ({match}) => {
       return(
-        <ProjectDetail project={this.props.projects.projects.filter((project) => project.id === parseInt(match.params.projectId,10))[0]}
-        isLoading={this.props.projects.isLoading}
-        errMess={this.props.projects.errMess}
+        <ProjectDetail project={this.props.projects.filter((project) => project.id === parseInt(match.params.projectId,10))[0]}
         comments={this.props.comments.filter((comment) => comment.projectId === parseInt(match.params.projectId,10))}
         addComment={this.props.addComment}
       />
@@ -86,18 +79,22 @@ class Main extends Component {
     };
 
     return (
-      <div>
+      <div className="background" >
         <Header />
-          <Switch>
-            <Route path='/home' render={HomePage} />
-            <Route exact path='/projects' render={() => <Menu projects={this.props.projects} />} />
-            <Route path ='/projects/:projectId' render={ProjectWithId} />
-            <Route path='/biography' render={BioHomePage} />
-            <Route exact path='/certificates' render={() => <CertMenu certificates={this.props.certificates} />} />
-            <Route path ='/certificates/:certificateId' render={CertificateWithId} />
-            <Route exact path='/contactus' render={() => <Contact resetFeedbackForm={this.props.resetFeedbackForm} />} />
-            <Redirect to="/home" />
-          </Switch>
+          <TransitionGroup className="">
+            <CSSTransition key={this.props.location.key} classNames="page" timeout={300}>
+              <Switch location={this.props.location}>
+                <Route path='/home' render={HomePage} />
+                <Route exact path='/projects' render={() => <Menu projects={this.props.projects} />} />
+                <Route path ='/projects/:projectId' render={ProjectWithId} />
+                <Route path='/biography' render={BioHomePage} />
+                <Route exact path='/certificates' render={() => <CertMenu certificates={this.props.certificates} />} />
+                <Route path ='/certificates/:certificateId' render={CertificateWithId} />
+                <Route exact path='/contactus' render={() => <Contact resetFeedbackForm={this.props.resetFeedbackForm} />} />
+                <Redirect to="/home" />
+              </Switch>
+            </CSSTransition>
+          </TransitionGroup>
         <Footer />
       </div>
     );

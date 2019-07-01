@@ -2,37 +2,48 @@ import React, { Component } from 'react';
 import { Card, CardImg, CardText, CardBody, Modal, ModalHeader, ModalBody, CardTitle, Row, Breadcrumb, BreadcrumbItem, Button, Label, Col } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import { Control, LocalForm, Errors } from 'react-redux-form';
-import { Loading } from './LoadingComponent';
+import { FadeTransform, Fade, Stagger } from 'react-animation-components';
+
 
 
 function RenderProject({project}){
     return(
         <div className="col-12 col-md-5 m-1">
-            <Card>
-                <CardImg width="100%" src={(project.image)} alt={project.name}></CardImg>
-                <CardBody>
-                    <CardTitle>{project.name}</CardTitle>
-                    <CardText>{project.description}</CardText>
-                </CardBody>
-            </Card>
+            <FadeTransform in
+                transformProps={{
+                    exitTransform: 'scale(0.5) translateY(-50%)'
+                }}>
+                <Card>
+                    <CardImg width="100%" src={(project.image)} alt={project.name}></CardImg>
+                    <CardBody>
+                        <CardTitle>{project.name}</CardTitle>
+                        <CardText>{project.description}</CardText>
+                    </CardBody>
+                </Card>
+            </FadeTransform>
         </div>
     );
 }
 
   function RenderComments({comments, addComment, projectId}) {
-    var comms = comments.map ((comments) => {
-        return (
-            <li style={{ listStyleType: "none"}} key={comments.id}>
-            {comments.comment}<br/><br/>--{comments.author} {new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'short', day: '2-digit'}).format(new Date(Date.parse(comments.date)))}<br/><br/>
-            </li>
-        );
-    });
-
     if (comments != null){
         return(
             <div className = "col-12 col-md-5 m-1">
                 <h4>Comments</h4>
-                {comms}
+                <ul className="list-unstyled">
+                <Stagger in>
+                        {comments.map((comment) => {
+                            return (
+                                <Fade in key={comment.id}>
+                                    <li>
+                                        <p>{comment.comment}</p>
+                                        <p>-- {comment.author}, {new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'short', day: '2-digit'}).format(new Date(Date.parse(comment.date)))}</p>
+                                    </li>
+                                </Fade>
+                            );
+                        })}
+                    </Stagger>
+                    </ul>
                 <CommentForm projectId={projectId} addComment={addComment} />
 
             </div>
@@ -120,25 +131,7 @@ export class CommentForm extends Component {
 }
 
 const ProjectDetail = (props) => {
-    if (props.isLoading) {
-        return(
-            <div className="container">
-                <div className="row">
-                    <Loading />
-                </div>
-            </div>
-        );
-    }
-    else if (props.errMess) {
-        return(
-            <div className="container">
-                <div className="row">
-                    <h4>{props.errMess}</h4>
-                </div>
-            </div>
-        );
-    }
-    else if (props.project != null){
+    if (props.project != null){
         return (
             <div className="container">
                 <div className="row">

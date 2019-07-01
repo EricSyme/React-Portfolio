@@ -23,7 +23,7 @@ function RenderMenuItem ({project}) {
 
 const Menu = (props) => {
 
-    const menu = props.projects.projects.map((project) => {
+    const menu = props.projects.map((project) => {
         return (
             <div key={project.id} className="col-12 col-md-5 m-1">
                 <RenderMenuItem project={project} />
