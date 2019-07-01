@@ -27,8 +27,8 @@ const CertMenu = (props) => {
     });
 
     return (
-        <div className="container">
-            <div className="row">
+        <div className="container certificates">
+            <div className="row ">
                     <Breadcrumb>
                         <BreadcrumbItem><Link to="/home">Home</Link></BreadcrumbItem>
                         <BreadcrumbItem active>Certificates</BreadcrumbItem>
@@ -38,7 +38,7 @@ const CertMenu = (props) => {
                         <hr />
                     </div>                
                 </div>
-            <div className="row">
+            <div className="row ">
                 {certMenu}
             </div>
         </div>

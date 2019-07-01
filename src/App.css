@@ -4,11 +4,14 @@
 }
 
 #white {
-    color:white;
-}
+    color: floralwhite;}
 
 #red {
     color: red;
+}
+
+#black {
+    color: black;
 }
 
 .row-header{
@@ -76,6 +79,56 @@ body > #root > div {
     height: 100vh;
 }
 
-.middlePage {
-    max-height: 50%;
+.nameTitle {
+    padding: 25px 0 0 0;
+    font-family: 'Megrim', cursive;
+    font-size: 80px;
+    /*-webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: black;*/
+}
+
+.megrim40 {
+    font-family: 'Megrim', cursive;
+    font-size: 40px;
+}
+
+.megrim20 {
+    font-family: 'Megrim', cursive;
+    font-size: 20px;
+}
+
+.textStroke {
+    -webkit-text-stroke-width: .3px;
+    -webkit-text-stroke-color: red;
+}
+
+.certificates {
+    background-image: url("/assets/images/library1.jpg");
+    margin: 50px auto;
+    padding: 0 0 100px 0;
+    background-repeat: no-repeat;
+	height:100%;
+	background-position: center;
+	background-size: cover;
+}
+
+.projects {
+    background-image: url("/assets/images/work2.jpg");
+    margin: 50px auto;
+    padding: 0 0 100px 0;
+    background-repeat: no-repeat;
+	height:100%;
+	background-position: center;
+	background-size: cover;
+}
+
+.home {
+    background-color:rgb(255, 250, 240, .70);
+    font-family: 'Passion One', cursive;
+	height:auto;
+	margin: 0 0 0 0;
+}
+
+.passion20 {
+    font-family: 'Passion One', cursive;
 }

@@ -31,14 +31,14 @@ const Menu = (props) => {
         );
     });
     return (
-        <div className="container">
+        <div className="container projects">
             <div className="row">
                 <Breadcrumb>
                     <BreadcrumbItem><Link to="/home">Home</Link></BreadcrumbItem>
                     <BreadcrumbItem active>Projects</BreadcrumbItem>
                 </Breadcrumb>
                 <div className="col-12">
-                    <h3>Projects</h3>
+                    <h3 className="textStroke" id="white">Projects</h3>
                     <hr />
                 </div>                
             </div>
