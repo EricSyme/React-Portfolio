@@ -25,7 +25,7 @@ class Header extends Component {
                     <div className="container">
                         <NavbarToggler onClick={this.toggleNav} />
                         <NavbarBrand className="mr-auto" href="/"><img src='assets/images/ESlogo.png' height="41" width="41" alt='Eric Syme -- Portfolio' /></NavbarBrand>
-                        <Collapse isOpen={this.state.isNavOpen} navbar>
+                        <Collapse isOpen={this.state.isNavOpen} navbar className="justify-content-center">
                             <Nav navbar>
                             <NavItem>
                                 <NavLink className="nav-link"  to='/home'><span className="fa fa-home fa-lg"></span> Home</NavLink>
@@ -41,6 +41,15 @@ class Header extends Component {
                             </NavItem>
                             <NavItem>
                                 <NavLink className="nav-link" to='/contactus'><span className="fa fa-address-card fa-lg"></span> Contact</NavLink>
+                            </NavItem>
+                            <NavItem>
+                                <a className="nav-link" target="_blank" href="https://www.linkedin.com/in/eric-syme-660985183/"><span className="fa fa-linkedin"> LinkedIn</span></a>
+                            </NavItem>
+                            <NavItem>
+                                <a className="nav-link" target="_blank" href="https://github.com/EricSyme"><span className="fa fa-github"> GitHub</span></a>
+                            </NavItem>
+                            <NavItem>
+                                <a className="nav-link" href="mailto:eric.onetenbalm@gmail.com"><span className="fa fa-envelope-o"> Email</span></a>
                             </NavItem>
                             </Nav>
                         </Collapse>

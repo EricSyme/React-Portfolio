@@ -9,7 +9,7 @@ function RenderCertMenuItem ({certificate}) {
             <Link to={`/certificates/${certificate.id}`} >
                 <CardImg width="100%" src={certificate.image} alt={certificate.name} />
                 <CardImgOverlay>
-                    <CardTitle id="white">{certificate.name}</CardTitle>
+                    <CardTitle id="red">{certificate.name}</CardTitle>
                 </CardImgOverlay>
             </Link>
         </Card>
