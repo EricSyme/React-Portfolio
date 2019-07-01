@@ -8,7 +8,7 @@ import { FadeTransform, Fade, Stagger } from 'react-animation-components';
 
 function RenderProject({project}){
     return(
-        <div className="col-12 col-md-5 m-1">
+        <div className="col-12 col-md-5 m-1 mx-auto">
             <FadeTransform in
                 transformProps={{
                     exitTransform: 'scale(0.5) translateY(-50%)'
