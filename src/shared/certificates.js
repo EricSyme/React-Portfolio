@@ -3,7 +3,7 @@ export const CERTIFICATES = [
       id: 0,
       name: 'HTML/CSS/JavaScript',
       image: '/assets/images/newhtml.png',
-      featured: true,
+      featured: false,
       description: 'Featuring mouthwatering combinations with a choice of five different salads, six enticing appetizers, six main entrees and five choicest desserts. Free flowing bubbly and soft drinks. All for just $19.99 per person'
     },
     {
@@ -11,6 +11,13 @@ export const CERTIFICATES = [
         name: 'UI Framework Bootstrap',
         image: '/assets/images/bootstrapCert.png',
         featured: false,
+        description: 'Featuring mouthwatering combinations with a choice of five different salads, six enticing appetizers, six main entrees and five choicest desserts. Free flowing bubbly and soft drinks. All for just $19.99 per person'
+      },
+      {
+        id: 2,
+        name: 'Front-End Web Development: React',
+        image: '/assets/images/react.png',
+        featured: true,
         description: 'Featuring mouthwatering combinations with a choice of five different salads, six enticing appetizers, six main entrees and five choicest desserts. Free flowing bubbly and soft drinks. All for just $19.99 per person'
       }
   ];
