@@ -11,7 +11,7 @@ const validEmail = (val) => /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(val
 
 class Contact extends Component {
 
-    constructor(props) {
+    constructor(props) { 
         super(props);
 
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -45,13 +45,13 @@ class Contact extends Component {
                     </div>
                     <div className="col-12 col-sm-4 offset-sm-1">
                         <h5>Areas</h5>
-                        <address>
+                        <address><strong>
                             Downtown Seattle and Tacoma,<br />
                             Immediate Location: Bremerton, Silverdale,<br />
                             Kitsap, County, WA, United States<br />
                             <i className="fa fa-phone"></i>: (206)790-9142<br />
                             <i className="fa fa-envelope"></i>: <a href="mailto:eric.onetenbalm@gmail.com">eric.onetenbalm@gmail.com</a>
-                        </address>
+                            </strong></address>
                     </div>
                     <div className="col-12 col-sm-6 offset-sm-1">
                         <h5>Map of my Location</h5>

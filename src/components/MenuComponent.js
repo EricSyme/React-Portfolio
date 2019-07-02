@@ -24,11 +24,17 @@ function RenderMenuItem ({project}) {
 const Menu = (props) => {
 
     const menu = props.projects.map((project) => {
-        return (
-            <div key={project.id} className="col-12 col-md-4 m-1 mx-auto">
-                <RenderMenuItem project={project} />
-            </div>
-        );
+        if (project.featured != true){
+            return (
+                <div key={project.id} className="col-12 col-md-4 m-1 mx-auto">
+                    <RenderMenuItem project={project} />
+                </div>
+            );
+        } else {
+            return (
+                <div></div>
+            );
+        }
     });
     return (
         <div className="container projects">

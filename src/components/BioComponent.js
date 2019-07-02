@@ -1,6 +1,7 @@
 import React from 'react';
-import { Card, CardImg, CardText, CardBody,
-    CardTitle, CardSubtitle} from 'reactstrap';
+import { Breadcrumb, BreadcrumbItem, Card, CardImg, CardText, CardBody, CardTitle, CardSubtitle} from 'reactstrap';
+import { Link } from 'react-router-dom';
+
 
 function RenderCard({item}) {
     return(
@@ -9,7 +10,7 @@ function RenderCard({item}) {
             <CardBody>
                 <CardTitle>{item.name}</CardTitle>
                 {item.designation ? <CardSubtitle>{item.designation}</CardSubtitle> : null }
-                <CardText>{item.description}</CardText>
+                <CardText>{item.paragraph}</CardText>
             </CardBody>
         </Card>
     );
@@ -20,6 +21,10 @@ function BioHome(props) {
     return(
       <div className="container">
         <div className="row align-items-start">
+            <Breadcrumb>
+                <BreadcrumbItem><Link to="/home">Home</Link></BreadcrumbItem>
+                <BreadcrumbItem active>Biography</BreadcrumbItem>
+            </Breadcrumb>
             <div className="col-12 m-1">
                 <RenderCard item={props.biography} />
             </div>
