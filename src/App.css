@@ -1,7 +1,3 @@
-.homePageImg {
-    height: 250px;
-    width: 100%;
-}
 
 #white {
     color: floralwhite;}
@@ -126,7 +122,8 @@ body > #root > div {
     background-color:rgb(255, 250, 240, .70);
     font-family: 'Passion One', cursive;
 	height:auto;
-	margin: 0 0 0 0;
+    margin: 0 0 0 0;
+    padding: 0 0 15px 0;
 }
 
 .passion20 {

@@ -40,20 +40,16 @@ function Home(props) {
                 </Link>
             </div>
             <div className="col-12 col-md m-1">
-                <h3>BIOGRAPHY</h3>
-                <Link to="/biography">
-                <RenderCard item={props.biography} />
-                </Link>
-            </div>
-            <div className="col-12 col-md m-1">
                 <h3>CERTIFICATES</h3>
                 <Link to="/certificates">
                 <RenderCard item={props.certificate} />
                 </Link>
             </div>
             <div className="col-12 col-md m-1">
-                <h3>EXTRAS</h3>
-                <RenderCard item={props.category} />
+                <h3>BIOGRAPHY</h3>
+                <Link to="/biography">
+                <RenderCard item={props.biography} />
+                </Link>
             </div>
         </div>
       </div>

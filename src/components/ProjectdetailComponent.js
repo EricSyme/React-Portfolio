@@ -3,6 +3,7 @@ import { Card, CardImg, CardText, CardBody, Modal, ModalHeader, ModalBody, CardT
 import { Link } from 'react-router-dom';
 import { Control, LocalForm, Errors } from 'react-redux-form';
 import { FadeTransform, Fade, Stagger } from 'react-animation-components';
+import Iframe from 'react-iframe';
 
 
 
@@ -20,9 +21,30 @@ function RenderProject({project}){
                         <CardText>{project.description}</CardText>
                     </CardBody>
                 </Card>
+                <br/>
             </FadeTransform>
         </div>
     );
+}
+
+function RenderSandbox({project}){
+    if (project.sandbox != null){
+    return(
+        <div className="col-12 mx-auto">
+            <Iframe url={(project.sandbox)}
+                    width="1200px"
+                    height="450px"
+                    id="myId"
+                    className="myClassname"
+                    display="initial"
+                    position="relative"/>
+        </div>
+        );
+    } else {
+        return(
+            <div></div>
+        );
+    }
 }
 
   function RenderComments({comments, addComment, projectId}) {
@@ -45,7 +67,6 @@ function RenderProject({project}){
                     </Stagger>
                     </ul>
                 <CommentForm projectId={projectId} addComment={addComment} />
-
             </div>
         );
     }
@@ -93,18 +114,6 @@ export class CommentForm extends Component {
                         <ModalBody>
                             <LocalForm onSubmit={(values) => this.handleSubmit(values)} >
                                 <Row className="form-group">
-                                    <Col className="col-12">
-                                        <Label htmlFor="rating">Rating</Label>
-                                        <Control.select model=".rating" name="rating" className="form-control" >
-                                            <option>1</option>
-                                            <option>2</option>
-                                            <option>3</option>
-                                            <option>4</option>
-                                            <option>5</option>
-                                        </Control.select>
-                                    </Col>
-                                </Row>
-                                <Row className="form-group">
                                     <Col>
                                     <Label htmlFor="author">Your Name</Label>
                                         <Control.text model=".author" id="author" name="author" placeholder="Your Name" className="form-control" validators={{ required, minLength: minLength(3), maxLength: maxLength(15) }} 
@@ -120,7 +129,6 @@ export class CommentForm extends Component {
                                         <Errors className="text-danger" model=".comment" show="touched" messages={{ required: 'Required' }} />
                                     </Col>
                                 </Row>
-
                                 <Button type="submit" value="submit" color="primary">Submit</Button>
                             </LocalForm>
                         </ModalBody>
@@ -151,7 +159,7 @@ const ProjectDetail = (props) => {
                     projectId={props.project.id} /> 
                 </div>
                 <div className="row">
-
+                    <RenderSandbox project={props.project} />
                 </div>
             </div>
         );
