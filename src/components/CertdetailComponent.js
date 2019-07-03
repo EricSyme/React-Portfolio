@@ -12,7 +12,6 @@ function RenderCertificate({certificate}){
                 <CardImg width="100%" src={(certificate.image)} alt={certificate.name}></CardImg>
                 <CardBody>
                     <CardTitle>{certificate.name}</CardTitle>
-                    <CardText>{certificate.description}</CardText>
                 </CardBody>
             </Card>
         </div>
