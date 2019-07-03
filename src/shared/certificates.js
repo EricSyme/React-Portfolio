@@ -4,7 +4,7 @@ export const CERTIFICATES = [
         name: 'Certificates',
         image: '/assets/images/library1.jpg',
         featured: true,
-        description: 'Featuring mouthwatering combinations with a choice of five different salads, six enticing appetizers, six main entrees and five choicest desserts. Free flowing bubbly and soft drinks. All for just $19.99 per person'
+        description: 'Click here to see my certificates pertaining to web development.'
       },
       {
         id: 1,
