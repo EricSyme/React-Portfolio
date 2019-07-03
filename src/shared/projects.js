@@ -14,7 +14,7 @@ export const PROJECTS =
             image: '/assets/images/reactConfusion.png',
             category: 'mains',
             featured: false,
-            sandbox: "https://codesandbox.io/embed/confusion-scrk2?fontsize=14",
+            /*sandbox: "https://codesandbox.io/embed/confusion-scrk2?fontsize=14",*/
             description:'An updated and Reactified version of the Bootstrap project, this React.js app operates as a single-page application using Redux, Thunk, and Fetch to use with a JSON server to hold data that is changed by the user.  Similarly, this portfolio site offers the ability to add to the comments of each project.  Go ahead, add a comment by clicking the button to the right. '
         },
         {
