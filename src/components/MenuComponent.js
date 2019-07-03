@@ -2,7 +2,6 @@ import React from 'react';
 import { Card, CardImg, CardImgOverlay,
     CardTitle, Breadcrumb, BreadcrumbItem } from 'reactstrap';
 import { Link } from 'react-router-dom';
-import { Loading } from './LoadingComponent';
 
 
 
@@ -24,7 +23,7 @@ function RenderMenuItem ({project}) {
 const Menu = (props) => {
 
     const menu = props.projects.map((project) => {
-        if (project.featured != true){
+        if (project.featured !== true){
             return (
                 <div key={project.id} className="col-12 col-md-4 m-1 mx-auto">
                     <RenderMenuItem project={project} />

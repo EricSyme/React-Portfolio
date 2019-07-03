@@ -10,24 +10,16 @@ export const PROJECTS =
         },
         {
             id: 1,
-            name:'Ristorante ConFusion',
-            image: '/assets/images/confusion.png',
+            name:'React -- Ristorante ConFusion',
+            image: ['/assets/images/reactConfusion.png'],
             category: 'mains',
             featured: false,
-            description:'Developing a website for Restaurant ConFusion using HTML, CSS, HTML, JavaScript and Bootstrap.  On the home page, a navbar was created with the user in mind; links to the other pages, the restaurant icon, and the login modal for users is housed here.  '
+            description:'An updated and Reactified version of the Bootstrap version, this React.js app operates as a single-page application using Redux, Thunk, and Fetch to use with a JSON server to hold data that is changed by the user.  Similarly, this site offers the ability to add to the comments of each project.  Go ahead, add a comment by clicking the button to the right. '
         },
         {
             id: 2,
-            name:'ConFusion3',
-            image: '/assets/images/confusion3.png',
-            category: 'mains',
-            featured: false,
-            description:'Developing a website for Restaurant ConFusion using HTML, CSS, HTML, JavaScript and Bootstrap.  On the home page, a navbar was created with the user in mind; links to the other pages, the restaurant icon, and the login modal for users is housed here.  '
-        },
-        {
-            id: 3,
-            name:'ConFusion2',
-            image: '/assets/images/confusion2.png',
+            name:'Bootstrap -- Ristorante ConFusion',
+            image: '/assets/images/confusion.png',
             category: 'mains',
             featured: false,
             description:'Developing a website for Restaurant ConFusion using HTML, CSS, HTML, JavaScript and Bootstrap.  On the home page, a navbar was created with the user in mind; links to the other pages, the restaurant icon, and the login modal for users is housed here.  '

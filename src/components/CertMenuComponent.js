@@ -19,7 +19,7 @@ function RenderCertMenuItem ({certificate}) {
 const CertMenu = (props) => {
 
     const certMenu = props.certificates.map((certificate) => {
-        if (certificate.featured != true) {
+        if (certificate.featured !== true) {
             return (
                 <div key={certificate.id} className="col-12 col-md-5 m-1 mx-auto">
                     <RenderCertMenuItem certificate={certificate} />

@@ -150,6 +150,9 @@ const ProjectDetail = (props) => {
                     addComment={props.addComment}
                     projectId={props.project.id} /> 
                 </div>
+                <div className="row">
+
+                </div>
             </div>
         );
     }
