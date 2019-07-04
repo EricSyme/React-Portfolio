@@ -32,7 +32,7 @@ function RenderSandbox({project}){
     return(
         <div className="col-12 mx-auto">
             <Iframe url={(project.sandbox)}
-                    width="1200px"
+                    width="100%"
                     height="450px"
                     id="myId"
                     className="myClassname"
@@ -50,7 +50,7 @@ function RenderSandbox({project}){
   function RenderComments({comments, addComment, projectId}) {
     if (comments != null){
         return(
-            <div className = "col-12 col-md-5 m-1">
+            <div className = "col-12 col-md-5 m-1 mx-auto">
                 <h4>Comments</h4>
                 <ul className="list-unstyled">
                 <Stagger in>
