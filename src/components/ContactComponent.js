@@ -48,7 +48,7 @@ class Contact extends Component {
                         <address><strong>
                             Downtown Seattle and Tacoma,<br />
                             Immediate Location: Bremerton, Silverdale,<br />
-                            Kitsap, County, WA, United States<br />
+                            Kitsap County, WA, United States<br />
                             <i className="fa fa-phone"></i>: (206)790-9142<br />
                             <i className="fa fa-envelope"></i>: <a href="mailto:eric.onetenbalm@gmail.com">eric.onetenbalm@gmail.com</a>
                             </strong></address>
