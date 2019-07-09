@@ -129,3 +129,8 @@ body > #root > div {
 .passion20 {
     font-family: 'Passion One', cursive;
 }
+
+.bioPic {
+    width: 100%;
+    height: auto;
+}

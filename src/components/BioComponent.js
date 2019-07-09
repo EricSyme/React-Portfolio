@@ -6,11 +6,18 @@ import { Link } from 'react-router-dom';
 function RenderCard({item}) {
     return(
         <Card>
-            <CardImg src={item.image} alt={item.name} />
+            <CardImg src={item.imageB} alt={item.name} />
             <CardBody>
                 <CardTitle>{item.name}</CardTitle>
                 {item.designation ? <CardSubtitle>{item.designation}</CardSubtitle> : null }
-                <CardText>{item.paragraph}</CardText>
+                <CardText>{item.paragraph.split('\n').map(function(item, key) {
+                    return (
+                        <span key={key}>
+                            {item}
+                            <br/>
+                        </span>
+                    );
+                })}</CardText>
             </CardBody>
         </Card>
     );
