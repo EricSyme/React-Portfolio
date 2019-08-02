@@ -8,23 +8,46 @@ import Iframe from 'react-iframe';
 
 
 function RenderProject({project}){
-    return(
-        <div className="col-12 col-md-5 m-1 mx-auto">
-            <FadeTransform in
-                transformProps={{
-                    exitTransform: 'scale(0.5) translateY(-50%)'
-                }}>
-                <Card>
-                    <CardImg width="100%" src={(project.image)} alt={project.name}></CardImg>
-                    <CardBody>
-                        <CardTitle>{project.name}</CardTitle>
-                        <CardText>{project.description}</CardText>
-                    </CardBody>
-                </Card>
-                <br/>
-            </FadeTransform>
-        </div>
-    );
+
+    if(project.link === null){
+        return(
+            <div className="col-12 col-md-5 m-1 mx-auto">
+                <FadeTransform in
+                    transformProps={{
+                        exitTransform: 'scale(0.5) translateY(-50%)'
+                    }}>
+                    <Card>
+                        <CardImg width="100%" src={(project.image)} alt={project.name}></CardImg>
+                        <CardBody>
+                            <CardTitle>{project.name}</CardTitle>
+                            <CardText>{project.description}</CardText>
+                        </CardBody>
+                    </Card>
+                    <br/>
+                </FadeTransform>
+            </div>
+        );
+    }else{
+        return(
+            <div className="col-12 col-md-5 m-1 mx-auto">
+                <FadeTransform in
+                    transformProps={{
+                        exitTransform: 'scale(0.5) translateY(-50%)'
+                    }}>
+                    
+                        <Card>
+                            <CardImg width="100%" src={(project.image)} alt={project.name}></CardImg>
+                            <CardBody>
+                                <CardTitle>{project.name}</CardTitle>
+                                <CardText>{project.description}</CardText>
+                            </CardBody>
+                        </Card>
+                    
+                    <br/>
+                </FadeTransform>
+            </div>
+        )
+    }
 }
 
 function RenderSandbox({project}){

@@ -27,7 +27,7 @@ export const PROJECTS =
             description:'An updated and Reactified version of the Bootstrap project, this React.js app operates as a single-page application using Redux, Thunk, and Fetch to use with a JSON server to hold data that is changed by the user.  Similarly, this portfolio site offers the ability to add to the comments of each project.  Go ahead, add a comment by clicking the button to the right. '
         },
         {
-            id: 2,
+            id: 3,
             name:'Bootstrap -- Ristorante ConFusion',
             image: '/assets/images/confusion.png',
             category: 'mains',

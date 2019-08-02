@@ -103,5 +103,45 @@ export const COMMENTS =
         comment: "The codeSandbox below needs to be tinkered with to use the API but the code can still be viewed through the menu button in the upper left corner.",
         author: "Eric Syme",
         date: "2019-07-29T17:57:28.556094Z"
+    },
+    {
+        id: 0,
+        projectId: 3,
+        rating: 5,
+        comment: "Imagine all the eatables, living in conFusion!",
+        author: "John Lemon",
+        date: "2012-10-16T17:57:28.556094Z"
+    },
+    {
+        id: 1,
+        projectId: 3,
+        rating: 4,
+        comment: "Sends anyone to heaven, I wish I could get my mother-in-law to eat it!",
+        author: "Paul McVites",
+        date: "2014-09-05T17:57:28.556094Z"
+    },
+    {
+        id: 2,
+        projectId: 3,
+        rating: 3,
+        comment: "Eat it, just eat it!",
+        author: "Michael Jaikishan",
+        date: "2015-02-13T17:57:28.556094Z"
+    },
+    {
+        id: 3,
+        projectId: 3,
+        rating: 4,
+        comment: "Ultimate, Reaching for the stars!",
+        author: "Ringo Starry",
+        date: "2013-12-02T17:57:28.556094Z"
+    },
+    {
+        id: 4,
+        projectId: 3,
+        rating: 2,
+        comment: "It's your birthday, we're gonna party!",
+        author: "25 Cent",
+        date: "2011-12-02T17:57:28.556094Z"
     }
 ]

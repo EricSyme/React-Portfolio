@@ -9,10 +9,12 @@ import CertificateDetail from './CertdetailComponent';
 import ProjectDetail from './ProjectdetailComponent';
 import { Switch, Route, Redirect, withRouter} from 'react-router-dom';
 import BioHome from './BioComponent';
+import WeatherHome from './WeatherComponent';
 import { addComment } from '../redux/ActionCreators';
 import { connect } from 'react-redux';
 import { actions } from 'react-redux-form';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
+import { Weather } from '../redux/weather';
 
 
 
@@ -63,6 +65,7 @@ class Main extends Component {
           />
       );
     }
+
 
     const ProjectWithId = ({match}) => {
       return(
