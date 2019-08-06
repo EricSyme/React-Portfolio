@@ -26,5 +26,12 @@ export const CERTIFICATES = [
         image: '/assets/images/react.png',
         featured: false,
         description: 'Featuring mouthwatering combinations with a choice of five different salads, six enticing appetizers, six main entrees and five choicest desserts. Free flowing bubbly and soft drinks. All for just $19.99 per person'
-        }
+        },
+        {
+          id: 4,
+          name: 'Multiplatform Development for Web and Mobile App: React Native',
+          image: '/assets/images/reactNative.png',
+          featured: false,
+          description: 'Featuring mouthwatering combinations with a choice of five different salads, six enticing appetizers, six main entrees and five choicest desserts. Free flowing bubbly and soft drinks. All for just $19.99 per person'
+          }
   ];

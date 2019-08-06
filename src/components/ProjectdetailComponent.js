@@ -16,6 +16,7 @@ function RenderProject({project}){
                     transformProps={{
                         exitTransform: 'scale(0.5) translateY(-50%)'
                     }}>
+                    <CardTitle>{project.name}</CardTitle>
                     <Card>
                         <CardImg width="100%" src={(project.image)} alt={project.name}></CardImg>
                         <CardBody>

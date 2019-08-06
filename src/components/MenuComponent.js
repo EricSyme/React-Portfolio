@@ -10,10 +10,11 @@ function RenderMenuItem ({project}) {
     console.log("menu component", project.image)
     return (
         <Card>
+            <CardTitle id="black">{project.name}</CardTitle>
             <Link to={`/projects/${project.id}`} >
                 <CardImg width="100%" src={project.image} alt={project.name} />
                 <CardImgOverlay>
-                    <CardTitle id="white">{project.name}</CardTitle>
+                    
                 </CardImgOverlay>
             </Link>
         </Card>

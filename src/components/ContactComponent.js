@@ -65,7 +65,7 @@ class Contact extends Component {
                 </div>
                 <div className="row row-content">
                     <div className="col-12">
-                        <h3>Send me a note about anything</h3><p>(This site is static and will not send feedback to a server. When this form is submitted, an alert will pop up showing what your input values are for 'export.' Please use an email link or call me directly, thank you!)</p>
+                        <h3>Send me a note about anything</h3><p>(This site is static and will not send feedback to a server. When this form is submitted, an alert will pop up showing what your input values are for 'export.' Please use an email link or call me directly, thank you! **Please play with the validation fields in the form below!)</p>
                     </div>
                     <div className="col-12 col-md-9">
                         <Form model ="feedback" onSubmit={(values) => this.handleSubmit(values)}>

@@ -15,7 +15,7 @@ export const PROJECTS =
             category: 'mains',
             featured: false,
             sandbox: "https://codesandbox.io/embed/myweatherapp-l5jly?fontsize=14",
-            description:'This solo project fetches an API from openweathermap.org and returns data.  This simple app uses three components and is of basic layout. The goal was to learn how to use an API key and how to structure basic data return.  One slightly challenging detail was that the temperature data from the API returns in Kelvin, and I needed to find out how to convert to Fehrenheit. The next step is to call a geo-location API and load data associated to the location of the user as well as refine the search field. '
+            description:'This solo project fetches an API from openweathermap.org and returns data.  This simple app uses three components and is of basic layout. The goal was to learn how to use an API key and how to structure basic data return.  One slightly challenging detail was that the temperature data from the API returns in Kelvin, and I needed to find out how to convert to Fehrenheit. The next step is to call a geo-location API and load data associated to the location of the user as well as refine the search field. **This code does work on my home machine, and I am working on getting it to work via CodeSandbox...stay tuned! '
         },
         {
             id: 2,

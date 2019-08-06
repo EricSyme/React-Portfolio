@@ -6,10 +6,11 @@ import { Link } from 'react-router-dom';
 function RenderCertMenuItem ({certificate}) {
     return (
         <Card>
+            <CardTitle id="black">{certificate.name}</CardTitle>
             <Link to={`/certificates/${certificate.id}`} >
                 <CardImg width="100%" src={certificate.image} alt={certificate.name} />
                 <CardImgOverlay>
-                    <CardTitle id="red">{certificate.name}</CardTitle>
+                    
                 </CardImgOverlay>
             </Link>
         </Card>
